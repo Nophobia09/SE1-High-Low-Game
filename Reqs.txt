@@ -1,0 +1,7 @@
+program that takes input from a user a number and if the user is to high it will say lower and if the user is to low it will say higher and cli int inclusive
+
+pc guess the number it came up and then take a guess at the number 3 rule breaks game over, int inclusinve 1 through 10 count to keep up with number 
+of mistakes and 3 in a row game over max of 5 attempts
+
+
+5 player poker deal game that takes a standard deck of cards and deals 5 cards to a player and displays the hand each card on a new line, show suit and rank of each card same line #Letter
