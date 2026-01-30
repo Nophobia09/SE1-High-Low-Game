@@ -20,10 +20,13 @@ int main() {
         if (scanf("%d", &currentGuess) != 1) {
             int ch;
             while ((ch = getchar()) != '\n' && ch != EOF) {}
-
-            printf("Don't be a Dufus! You have made %d mistakes.\n", mistakes + 1);
+            if (mistakes == 0) {
+                printf("Don't be a Dufus! This is a warning!");
+            } else {
+            printf("Don't be a Dufus! You have made %d mistakes.\n3 Mistakes will automatically close the game.", mistakes + 1);
             mistakes++;
             continue;
+            }
         }
 
         if (currentGuess < 1 || currentGuess > 10) {
