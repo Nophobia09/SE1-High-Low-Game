@@ -3,7 +3,7 @@
 
 int main() {
     printf("Welcome to High Low Game!\n");
-    int numberToGuess = rand() % 10 + 1; // Random number between 1 and 10
+    int numberToGuess = rand() % 10 + 1; 
     int currentGuess;
     int attempts = 0;
     const int maxAttempts = 5;
@@ -16,15 +16,24 @@ int main() {
 
     while (attempts < maxAttempts && mistakes < maxMistakes) {
         printf("Enter your guess (1-10): ");
-        scanf("%d", &currentGuess);
+        
+        if (scanf("%d", &currentGuess) != 1) {
+            int ch;
+            while ((ch = getchar()) != '\n' && ch != EOF) {}
+
+            printf("Don't be a Dufus! You have made %d mistakes.\n", mistakes + 1);
+            mistakes++;
+            continue;
+        }
 
         if (currentGuess < 1 || currentGuess > 10) {
-            printf("Please guess a number between 1 and 10.\n");
+            printf("Don't be a Dufus! You have made %d mistakes.\n", mistakes + 1);
             mistakes++;
             continue;
         }
         
-        if (previousGuess == currentGuess || currentGuess < previousGuess && guessedToLow || currentGuess > previousGuess && guessedToHigh) {
+        if (previousGuess == currentGuess || (currentGuess < previousGuess && guessedToLow) || (currentGuess > previousGuess && guessedToHigh)) {
+            printf("Don't be a Dufus! You have made %d mistakes.\n", mistakes + 1);
             mistakes++;
         } else {
             previousGuess = currentGuess;
